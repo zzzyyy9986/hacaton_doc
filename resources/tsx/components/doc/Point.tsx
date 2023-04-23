@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ITask } from "../../../interfaces/ITask";
 import axios from "axios";
 import { ListOfPoints } from "./tab/ListOfPoints";
+import { Picker } from "./Picker";
 
 export interface IPoint {
     key?: any;
@@ -12,6 +13,10 @@ export const Point = ({ task }: IPoint) => {
     const [description, setDescription] = useState();
     const [points, setPoints] = useState([...(task.points ?? [])]);
 
+    const [optionsForSel, setOptionsForSel] = useState();
+
+    useEffect(() => {}, []);
+
     const updatePoints = async () => {
         let data: { data: IPoint[] } = await axios.get(
             "/points/getById/" + task.id
@@ -20,7 +25,6 @@ export const Point = ({ task }: IPoint) => {
     };
 
     useEffect(() => {
-        console.log("Сработал");
         if (task.id) {
             updatePoints();
         }
@@ -55,9 +59,7 @@ export const Point = ({ task }: IPoint) => {
         <form onSubmit={(event) => addPoint(event)}>
             <ListOfPoints points={points} />
             <div className="form-group">
-                <label htmlFor="exampleFormControlInput1">
-                    Введите название контрольной точки
-                </label>
+                <h1>Введите название контрольной точки</h1>
                 <input
                     type="text"
                     onChange={(e) => {
@@ -66,11 +68,12 @@ export const Point = ({ task }: IPoint) => {
                     className="form-control"
                 />
             </div>
+            <Picker />
             <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">
+                <h1>
                     Введите описание для контрольной точки. Какие-то доп
                     материалы, ссылки на документы
-                </label>
+                </h1>
                 <textarea
                     onChange={(e) => {
                         onDescriptionChange(e);

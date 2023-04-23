@@ -15,14 +15,18 @@ class FirmController extends Controller
     {
         $firm = new Firm();
         $firm->id = null;
-        $firm->name = $request->name;
-        $firm->inn = $request->inn;
-        $firm->email = $request->phone;
+        $firm->name = $request->contractor['name'];
+        $firm->inn = $request->contractor['inn'];
+        $firm->email = $request->contractor['phone'];
+        $firm->phone = $request->contractor['phone'];
         $firm->save();
         return response()->json([
             "status" => 1,
             "id" => $firm->id
         ]);
+    }
+    public function getAll(){
+        return Firm::all();
     }
 
 }

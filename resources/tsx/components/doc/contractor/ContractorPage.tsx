@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import { Contractor } from "./Contractor";
 import { IContractor } from "../../../../interfaces/IContractor";
+import axios from "axios";
 
 export const ContractorPage = () => {
     const [listOfContractors, setListOfContractors]: [IContractor[], Function] =
@@ -20,27 +21,39 @@ export const ContractorPage = () => {
         setListOfContractors((prev) => prev.slice(0, prev.length - 1));
     };
 
+    const getAll = async () => {
+        const data = await axios.get("/firm/all");
+        // console.log(data.data);
+        setListOfContractors(data.data);
+    };
+    useEffect(() => {
+        console.log(getAll());
+        // setListOfContractors(data);
+    }, []);
+
     return (
         <div>
             <div className="container-fluid">
-                <h2>Карточки</h2>
-                <button
-                    className="btn btn-success"
-                    onClick={(е) => {
-                        AddContractor();
-                    }}
-                >
-                    {" "}
-                    Добавить
-                </button>
-                <button
-                    className="btn btn-danger"
-                    onClick={(e) => {
-                        deleteEmptyCard();
-                    }}
-                >
-                    Удалить
-                </button>
+                <div className="mb-2">
+                    <h2>Карточки</h2>
+                    <button
+                        className="btn btn-success mr-2"
+                        onClick={(е) => {
+                            AddContractor();
+                        }}
+                    >
+                        {" "}
+                        Добавить
+                    </button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={(e) => {
+                            deleteEmptyCard();
+                        }}
+                    >
+                        Удалить
+                    </button>
+                </div>
                 <div className="row">
                     {listOfContractors.map((contractor, index) => {
                         return (

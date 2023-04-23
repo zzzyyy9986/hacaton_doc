@@ -12,7 +12,7 @@ export const ListOfPoints = ({ points }: IListOfPoints) => {
                 return (
                     <li key={point.id}>
                         {i + 1 + "" + ". "}
-                        {point.description}
+                        {point.title}
                     </li>
                 );
             })}

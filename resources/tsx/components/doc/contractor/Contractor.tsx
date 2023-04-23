@@ -34,13 +34,16 @@ export const Contractor = ({
         });
     };
     const onDelete = () => {};
-    const onSave = () => {
-        axios.post("", {});
+    const onSave = async (e) => {
+        e.preventDefault();
+        const data = await axios.post("/firm/save", {
+            contractor,
+        });
     };
     return (
         <div className="card">
             <div className="card-body">
-                <form>
+                <form onSubmit={(e) => onSave(e)}>
                     <div className="form-group">
                         <label htmlFor="exampleFormControlInput1">Имя</label>
                         <input
@@ -49,11 +52,10 @@ export const Contractor = ({
                             }}
                             name="name"
                             value={contractor.name}
-                            type="email"
                             required={true}
                             className="form-control"
                             id="exampleFormControlInput1"
-                            placeholder="name@example.com"
+                            placeholder="Введите имя"
                         />
                     </div>
                     <div className="form-group">
@@ -66,7 +68,6 @@ export const Contractor = ({
                             }}
                             name="email"
                             value={contractor.email}
-                            type="email"
                             required={true}
                             className="form-control"
                             id="exampleFormControlInput1"

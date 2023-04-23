@@ -67,6 +67,7 @@
         "moment": "2.29.4",
         "multiselect-react-dropdown": "^2.0.25",
         "popper.js": "1.16.1",
+        "react-multi-select-component": "^4.3.4",
         "react-router-dom": "^5.3.4",
         "react-tabs": "^6.0.0",
         "react-transition-group": "^4.4.5",

@@ -31,8 +31,8 @@ Route::get('/points/getById/{id}', 'PointController@getPointsById');
 Route::get('/{path?}', 'ExampleController@test');
 
 Route::post('/point/save', 'PointController@save');
-Route::post('/firm/save', 'firmController@save');
-Route::get('/firm/all', 'FirmConroller@get');
+Route::post('/firm/save', 'FirmController@save');
+Route::get('/firm/all', 'FirmController@get');
 
 
 
