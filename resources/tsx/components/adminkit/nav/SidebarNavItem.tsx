@@ -28,7 +28,7 @@ const SidebarNavItem = (props: SidebarNavItemType) => {
      *
      * @param e
      */
-    const handleClick = e => {
+    const handleClick = (e) => {
         // do something else aside from the passed handler
         // ...
         props.onClick(props.link ? props.link : "");
@@ -39,14 +39,14 @@ const SidebarNavItem = (props: SidebarNavItemType) => {
      *
      * @param props
      */
-    const renderLabel = function(props: SidebarNavItemType) {
+    const renderLabel = function (props: SidebarNavItemType) {
         return (
-            <>
+            <Link to={props.link}>
                 {props.icon && (
                     <i className="align-middle" data-feather={props.icon} />
                 )}
                 <span className="align-middle">{props.contents}</span>
-            </>
+            </Link>
         );
     };
 
@@ -54,7 +54,7 @@ const SidebarNavItem = (props: SidebarNavItemType) => {
      * Renders the item as a link. When props.items is set (i.e., there are submenu items linked to this item)
      * the link will be rendered as a random string hash param. This hash will be used as the id of the submenu
      */
-    const renderLink = function(props: SidebarNavItemType) {
+    const renderLink = function (props: SidebarNavItemType) {
         return props.itemBindId ? (
             <a
                 href="#"
@@ -79,7 +79,7 @@ const SidebarNavItem = (props: SidebarNavItemType) => {
         );
     };
 
-    const renderSubItems = function(items: SidebarNavItemTypeNoKey[]) {
+    const renderSubItems = function (items: SidebarNavItemTypeNoKey[]) {
         return (
             <>
                 <ul
@@ -119,7 +119,7 @@ const SidebarNavItem = (props: SidebarNavItemType) => {
      * Render the clickable item and sub-items if any
      * @param props
      */
-    const render = function(props: SidebarNavItemType) {
+    const render = function (props: SidebarNavItemType) {
         let structure = (
             <>
                 {props.link ? renderLink(props) : renderLabel(props)}

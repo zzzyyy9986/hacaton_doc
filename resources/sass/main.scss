@@ -1,0 +1,26 @@
+.react-tabs__tab-list li{
+    display: block;
+    padding: 10px;
+    background: white;
+    border-radius: 40px;
+    margin-top: 10px;
+}
+.react-tabs__tab-list form{
+    transition: all 1s ease-out;
+
+}
+.tab-title-name {
+    font-size: 25px;
+}
+.selected-tab-panel{
+    background: $selected-tab-bg !important;
+    color: $selected-tab-color;
+    border-radius: 30px !important;
+    padding: 30px;
+}
+
+
+
+.navbar-nav li{
+    margin-right: 10px;
+}

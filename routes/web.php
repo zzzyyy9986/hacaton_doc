@@ -22,5 +22,17 @@ Route::get('/admin/forms-basic-inputs', 'AdminController@basicInputsHardRoute');
 // This is the default admin "app"
 Route::get('/admin/{path?}', 'AdminController@admin');
 
+Route::get('/points/allPoints', 'PointController@allPoints');
+Route::get('/points/getById/{id}', 'PointController@getPointsById');
+
+
+
 // This is an example of component rendering
 Route::get('/{path?}', 'ExampleController@test');
+
+Route::post('/point/save', 'PointController@save');
+Route::post('/firm/save', 'firmController@save');
+Route::get('/firm/all', 'FirmConroller@get');
+
+
+

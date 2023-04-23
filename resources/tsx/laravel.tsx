@@ -13,7 +13,7 @@ import React from "react";
  */
 
 const componentRegistry = {
-    FormsBasicInputs: require("./components/adminkit/demo/FormsBasicInputs")
+    FormsBasicInputs: require("./components/doc/App")
         .default
 };
 

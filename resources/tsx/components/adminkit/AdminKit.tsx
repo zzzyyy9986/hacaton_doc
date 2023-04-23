@@ -18,47 +18,29 @@ const AdminKit = () => {
      * SidebarNavItemCollection
      */
     const sidebarItems = [
-        // {
-        //     contents: string,
-        //     icon: string,
-        //     link: string,
-        //     isReactLink: boolean,
-        //     isHeader: boolean,
-        // }
-
         {
             contents: "Pages",
-            isHeader: true
+            isHeader: true,
         },
         {
-            contents: "Dashboard",
+            contents: "Документооборот",
             icon: "sliders",
-            link: "/admin"
+            link: "/admin/create",
         },
         {
-            contents: "Profile",
+            contents: "Документы",
+            icon: "sliders",
+            link: "/admin",
+        },
+        {
+            contents: "Подрядчики",
             icon: "user",
-            link: "/admin/profile"
-        },
-        {
-            contents: "Settings",
-            icon: "settings",
-            link: "/admin/settings"
-        },
-        {
-            contents: "Invoice",
-            icon: "credit-card",
-            link: "/admin/invoice"
-        },
-        {
-            contents: "Blank",
-            icon: "book",
-            link: "/admin/blank"
+            link: "/admin/сontractor",
         },
 
         {
             contents: "Tools & Components",
-            isHeader: true
+            isHeader: true,
         },
         {
             contents: "UI Elements",
@@ -72,89 +54,14 @@ const AdminKit = () => {
                 { contents: "General", link: "/admin/ui-general" },
                 { contents: "Grid", link: "/admin/ui-grid" },
                 { contents: "Modals", link: "/admin/ui-modals" },
-                { contents: "Typography", link: "/admin/ui-typography" }
-            ]
+                { contents: "Typography", link: "/admin/ui-typography" },
+            ],
         },
-        {
-            contents: "Icons",
-            icon: "coffee",
-            link: "/admin/icons-feather"
-        },
-        {
-            contents: "Forms",
-            icon: "check-circle",
-            link: "ui-forms",
-            itemBindId: "uiforms",
-            subItems: [
-                {
-                    contents: "Form Layouts",
-                    link: "/admin/forms-layouts",
-                    isReactLink: true
-                },
-                {
-                    contents: "Basic Inputs",
-                    link: "/admin/forms-basic-inputs",
-                    isReactLink: false
-                },
-                {
-                    contents: "Level 2 Test",
-                    link: "level2",
-                    isReactLink: true,
-                    // Test 3, 4 levels
-                    itemBindId: "level3",
-                    subItems: [
-                        {
-                            contents: "Level 3 - 1",
-                            link: "/admin/level3-1",
-                            isReactLink: true
-                        },
-                        {
-                            contents: "Level 3 - 2",
-                            link: "/admin/level3-2",
-                            isReactLink: true,
-                            itemBindId: "level4",
-                            subItems: [
-                                {
-                                    contents: "Level 4 - 1",
-                                    link: "/admin/level4-1",
-                                    isReactLink: true
-                                },
-                                {
-                                    contents: "Level 4 - 2",
-                                    link: "/admin/level4-2",
-                                    isReactLink: true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            contents: "Tables",
-            icon: "list",
-            link: "/admin/tables-bootstrap"
-        },
-
-        {
-            contents: "Plugins & Addons",
-            isHeader: true
-        },
-        {
-            contents: "Charts",
-            icon: "bar-chart-2",
-            link: "/admin/charts-chartjs"
-        },
-        {
-            contents: "Maps",
-            icon: "map",
-            link: "/admin/maps-google"
-        }
     ];
 
     const laravelRenderer: Laravel = new Laravel();
 
-    const renderContents = function() {
+    const renderContents = function () {
         return (
             <>
                 <Routes />
@@ -168,7 +75,7 @@ const AdminKit = () => {
             <Router>
                 <SidebarNav items={sidebarItems} />
                 <div className="main">
-                    <MainNav contents={""} />
+                    {/*<MainNav contents={""} />*/}
 
                     <main className="content">{renderContents()}</main>
 

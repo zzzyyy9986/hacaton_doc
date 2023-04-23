@@ -3,8 +3,9 @@ import SidebarNavItem from "./SidebarNavItem";
 import {
     SidebarNavItemCollection,
     SidebarNavItemType,
-    SidebarNavItemTypeNoKey
+    SidebarNavItemTypeNoKey,
 } from "../shared/types";
+import { Link } from "react-router-dom";
 
 const SidebarNav = (navitems: SidebarNavItemCollection) => {
     const getCurrentLocation = () =>
@@ -21,7 +22,7 @@ const SidebarNav = (navitems: SidebarNavItemCollection) => {
         <nav id="sidebar" className="sidebar">
             <div className="sidebar-content js-simplebar">
                 <a className="sidebar-brand" href="index.html">
-                    <span className="align-middle">AdminKit</span>
+                    <span className="align-middle">Cosmos</span>
                 </a>
 
                 <ul className="sidebar-nav">

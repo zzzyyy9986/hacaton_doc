@@ -27,3 +27,12 @@ mix.react('resources/tsx/app.js', 'public/js')
             extensions: ['*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
         },
     });
+// mix.brow('127.0.0.1:800');
+mix.browserSync("http://localhost:8000/");
+
+// mix.browserSync({
+//     proxy: "http://localhost:8001"
+// });
+
+
+// mix.js('src/app.js', 'dist').setPublicPath('dist');
